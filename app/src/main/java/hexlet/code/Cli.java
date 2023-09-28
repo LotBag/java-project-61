@@ -10,5 +10,5 @@ public class Cli {
         System.out.println("Hello, what is you name? ");
         userName = newUser.next();
         System.out.println("Hello " + userName + "!");
-   }
+    }
 }
