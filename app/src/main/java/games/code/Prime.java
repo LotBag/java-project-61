@@ -1,49 +1,47 @@
 package games.code;
 
 import hexlet.code.Cli;
+
+import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Even {
-    public static void playEven() {
+public class Prime {
+    public static void playPrime() {
         Cli.acquaintance();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\n"
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.\n"
                 + "You need to give three correct answers to win.");
 
         var counterOfCorrectAnswer = 0;
-        Scanner evenAnswer = new Scanner(System.in);
+        Scanner primeAnswer = new Scanner(System.in);
 
         while (counterOfCorrectAnswer < 3) {
-            var randomNum = (int) (Math.random() * 100);
+            var randomNum = (int) (Math.random() * 1000);
 
-            if (randomNum == 0) {
-                randomNum++;
-            }
-
-            var isRandomNumEven = (randomNum % 2 == 0);
-
+            BigInteger bigInteger = BigInteger.valueOf(randomNum);
+            boolean probablePrime = bigInteger.isProbablePrime((int) Math.log(randomNum));
 
             System.out.println("Question: " + randomNum);
             System.out.println("You answer: ");
 
-            String itEvenAnswer = evenAnswer.next();
+            String itPrimeAnswer = primeAnswer.next();
 
-            switch (itEvenAnswer) {
+            switch (itPrimeAnswer) {
                 case "yes":
-                    if (isRandomNumEven) {
+                    if (probablePrime) {
                         System.out.println("Correct!");
                         counterOfCorrectAnswer++;
                     } else {
-                        System.out.println("Oops, '" + itEvenAnswer + "' is wrong answer.Correct answer 'no'.\n"
+                        System.out.println("Oops, '" + itPrimeAnswer + "' is wrong answer.Correct answer 'no'.\n"
                                 + "Try better next times!");
                         counterOfCorrectAnswer += 10;
                     }
                     break;
                 case "no":
-                    if (!isRandomNumEven) {
+                    if (!probablePrime) {
                         System.out.println("Correct!");
                         counterOfCorrectAnswer++;
                     } else {
-                        System.out.println("Oops, '" + itEvenAnswer + "' is wrong answer.Correct answer 'yes'.\n"
+                        System.out.println("Oops, '" + itPrimeAnswer + "' is wrong answer.Correct answer 'yes'.\n"
                                 + "Try better next times!");
                         counterOfCorrectAnswer += 10;
                     }

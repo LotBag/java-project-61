@@ -1,17 +1,18 @@
 package hexlet.code;
-import games.code.Calculator;
-import games.code.Even;
-import games.code.GCD;
-import games.code.Progression;
 
 import java.util.Scanner;
 
+import static games.code.Calculator.playCalculator;
+import static games.code.Even.playEven;
+import static games.code.GCD.playGCD;
+import static games.code.Prime.playPrime;
+import static games.code.Progression.playProgression;
 import static hexlet.code.Cli.acquaintance;
 public class App {
     public static void main(String[] args) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter");
-        System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n0 - Exit");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         System.out.println("Your choice:");
         Scanner choiceGame = new Scanner(System.in);
         var choice = choiceGame.next();
@@ -20,16 +21,19 @@ public class App {
                 acquaintance();
                 break;
             case "2":
-                Even.playEven();
+                playEven();
                 break;
             case "3":
-                Calculator.playCalculator();
+                playCalculator();
                 break;
             case "4":
-                GCD.playGCD();
+                playGCD();
                 break;
             case "5":
-                Progression.playProgression();
+                playProgression();
+                break;
+            case "6":
+                playPrime();
                 break;
             case "0":
                 break;
