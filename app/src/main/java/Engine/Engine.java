@@ -1,4 +1,4 @@
-package games.code;
+package Engine;
 
 import hexlet.code.Cli;
 
