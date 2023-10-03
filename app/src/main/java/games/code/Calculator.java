@@ -9,7 +9,7 @@ import static hexlet.code.Cli.userName;
 public class Calculator {
     public static void playCalculator() {
         Cli.acquaintance();
-        System.out.println("Calculate the result and write it down.\n"
+        System.out.println("What is the result of the expression?\n"
                 + "You need to give three correct answers to win.");
 
         var counterOfCorrectAnswer = 0;
