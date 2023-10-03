@@ -5,6 +5,8 @@ import hexlet.code.Cli;
 import java.math.BigInteger;
 import java.util.Scanner;
 
+import static hexlet.code.Cli.userName;
+
 public class Prime {
     public static void playPrime() {
         Cli.acquaintance();
@@ -32,7 +34,7 @@ public class Prime {
                         counterOfCorrectAnswer++;
                     } else {
                         System.out.println("Oops, '" + itPrimeAnswer + "' is wrong answer.Correct answer 'no'.\n"
-                                + "Try better next times!");
+                                + "Let's try again, " + userName + "!");
                         counterOfCorrectAnswer += 10;
                     }
                     break;
@@ -42,12 +44,13 @@ public class Prime {
                         counterOfCorrectAnswer++;
                     } else {
                         System.out.println("Oops, '" + itPrimeAnswer + "' is wrong answer.Correct answer 'yes'.\n"
-                                + "Try better next times!");
+                                + "Let's try again, " + userName + "!");
                         counterOfCorrectAnswer += 10;
                     }
                     break;
                 default:
-                    System.out.println("Write only 'yes' or 'no' next time!");
+                    System.out.println("Write only 'yes' or 'no' next time!"
+                            + "Let's try again, " + userName + "!");
                     counterOfCorrectAnswer += 10;
             }
         }

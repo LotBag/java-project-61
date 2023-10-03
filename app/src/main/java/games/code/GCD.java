@@ -4,6 +4,8 @@ import hexlet.code.Cli;
 
 import java.util.Scanner;
 
+import static hexlet.code.Cli.userName;
+
 public class GCD {
     public static void playGCD() {
         Cli.acquaintance();
@@ -58,7 +60,8 @@ public class GCD {
                 counterOfCorrectAnswer++;
             } else {
                 System.out.println("Ouch, " + itGCDAnswer + " is wrong answer.\n"
-                        + gcdByEuclidInt + " is correct");
+                        + gcdByEuclidInt + " is correct\n"
+                        + "Let's try again, " + userName + "!");
                 counterOfCorrectAnswer += 10;
             }
         }

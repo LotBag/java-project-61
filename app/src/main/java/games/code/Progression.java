@@ -5,6 +5,8 @@ import hexlet.code.Cli;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static hexlet.code.Cli.userName;
+
 public class Progression {
     public static void playProgression() {
         Cli.acquaintance();
@@ -47,7 +49,8 @@ public class Progression {
                 counterOfCorrectAnswer++;
             } else {
                 System.out.println("Ouch, " + itProgressionAnswer + " is wrong answer.\n"
-                        + answerString + " is correct");
+                        + answerString + " is correct"
+                        + "Let's try again, " + userName + "!");
                 counterOfCorrectAnswer += 10;
             }
 

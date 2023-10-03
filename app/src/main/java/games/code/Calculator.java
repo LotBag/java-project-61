@@ -4,6 +4,8 @@ import hexlet.code.Cli;
 
 import java.util.Scanner;
 
+import static hexlet.code.Cli.userName;
+
 public class Calculator {
     public static void playCalculator() {
         Cli.acquaintance();
@@ -52,7 +54,8 @@ public class Calculator {
                 counterOfCorrectAnswer++;
             } else {
                 System.out.println("Ouch, " + itCalculatorAnswer + " is wrong answer.\n"
-                        + resultInt + " is correct");
+                        + resultInt + " is correct\n"
+                        + "Let's try again, " + userName + "!");
                 counterOfCorrectAnswer += 10;
             }
         }
