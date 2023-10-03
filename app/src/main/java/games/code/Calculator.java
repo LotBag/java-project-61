@@ -34,15 +34,10 @@ public class Calculator {
                     resultString += resultInt;
                     System.out.println("Question: " + randomFirstNum + " - " + randomSecondNum);
                     break;
-                case 3:
-                    resultInt = randomFirstNum * randomSecondNum;
-                    resultString += resultInt;
-                    System.out.println("Question: " + randomFirstNum + " * " + randomSecondNum);
-                    break;
                 default:
                     resultInt = randomFirstNum * randomSecondNum;
                     resultString += resultInt;
-                    System.out.println("Rare question: " + randomFirstNum + " * " + randomSecondNum);
+                    System.out.println("Question: " + randomFirstNum + " * " + randomSecondNum);
                     break;
             }
             System.out.println("Your answer: ");
