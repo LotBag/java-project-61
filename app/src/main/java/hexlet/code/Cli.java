@@ -7,7 +7,7 @@ public class Cli {
     public static void acquaintance() {
         Scanner newUser = new Scanner(System.in);
 
-        System.out.println("Hello, what is you name? ");
+        System.out.println("May I have your name? ");
         userName = newUser.next();
         System.out.println("Hello " + userName + "!");
     }
