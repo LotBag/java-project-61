@@ -38,7 +38,7 @@ public class GCD {
                 smallerNum = randomSecondNum;
             }
 
-            System.out.println("Question: " + largerNum + smallerNum);
+            System.out.println("Question: " + largerNum+ " " + smallerNum);
             System.out.println("You answer: ");
 
             int gcdByEuclidInt;
