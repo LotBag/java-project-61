@@ -10,6 +10,7 @@ import static games.code.Progression.playProgression;
 import static hexlet.code.Cli.acquaintance;
 public class App {
     public static void main(String[] args) {
+        Cli.acquaintance();
         System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter");
         System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
