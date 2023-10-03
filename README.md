@@ -1,15 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/LotBag/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/LotBag/java-project-61/actions)
-	  ╭┳╯┃┃╰┳╮
-	 ╭┫╰╯┃┃╰╯┣╮
-	╭╯╰┊━┫┣━┊╯╰╮
-	┣━╮╭╮┃┃╭╮╭━┫
-	╰╮╰╮╯┃┃╰╭╯╭╯                                                
-	╰╮╭╰━┃┃━╯╮╭╯            Welcome!
-	╭╯╰╭━┫┣━╮╯╰╮
-	╰╮╭╯╮┃┃╭╰╮╭╯
-	 ╰╮╭╯┃┃╰╮╭╯
-	 ╰╯╮┃┃╭╰╯
+	(☞ﾟヮﾟ)☞	Welcome!	☜(ﾟヮﾟ☜)
 	This project is a set of mini games for logic.
 	At startup, we get to the activity selection menu. We are expected to enter the activity number to launch it.
 
@@ -32,3 +23,4 @@
 If we make a mistake of an error, we will be notified.															https://asciinema.org/a/dLVyuZ8RmolNfoVmew9nZJYoi
 	
 	If you are bored with us, just press 0.																https://asciinema.org/a/JNVLFRoedna4JVprS3NIuPfdX
+
