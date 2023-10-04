@@ -4,7 +4,7 @@ import hexlet.code.Cli;
 
 import java.util.Scanner;
 
-import static hexlet.code.Cli.userName;
+import static hexlet.code.Cli.getUserName;
 
 public class GCD {
     public static void playGCD() {
@@ -61,13 +61,13 @@ public class GCD {
             } else {
                 System.out.println("Ouch, " + itGCDAnswer + " is wrong answer.\n"
                         + gcdByEuclidInt + " is correct\n"
-                        + "Let's try again, " + userName + "!");
+                        + "Let's try again, " + getUserName() + "!");
                 counterOfCorrectAnswer += 10;
             }
         }
 
         if (counterOfCorrectAnswer < 4) {
-            System.out.println("Congratulations, " + Cli.userName + "!");
+            System.out.println("Congratulations, " + getUserName() + "!");
         }
     }
 }

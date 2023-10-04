@@ -3,7 +3,7 @@ package games.code;
 import hexlet.code.Cli;
 import java.util.Scanner;
 
-import static hexlet.code.Cli.userName;
+import static hexlet.code.Cli.getUserName;
 
 public class Even {
     public static void playEven() {
@@ -36,7 +36,7 @@ public class Even {
                         counterOfCorrectAnswer++;
                     } else {
                         System.out.println("Oops, '" + itEvenAnswer + "' is wrong answer.Correct answer 'no'.\n"
-                                + "Let's try again, " + userName + "!");
+                                + "Let's try again, " + getUserName() + "!");
                         counterOfCorrectAnswer += 10;
                     }
                     break;
@@ -46,19 +46,19 @@ public class Even {
                         counterOfCorrectAnswer++;
                     } else {
                         System.out.println("Oops, '" + itEvenAnswer + "' is wrong answer.Correct answer 'yes'.\n"
-                                + "Let's try again, " + userName + "!");
+                                + "Let's try again, " + getUserName() + "!");
                         counterOfCorrectAnswer += 10;
                     }
                     break;
                 default:
                     System.out.println("Write only 'yes' or 'no' next time!"
-                            + "Let's try again, " + userName + "!");
+                            + "Let's try again, " + getUserName() + "!");
                     counterOfCorrectAnswer += 10;
             }
         }
 
         if (counterOfCorrectAnswer < 4) {
-            System.out.println("Congratulations, " + userName + "!");
+            System.out.println("Congratulations, " + getUserName() + "!");
         }
     }
 }

@@ -5,7 +5,7 @@ import hexlet.code.Cli;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static hexlet.code.Cli.userName;
+import static hexlet.code.Cli.getUserName;
 
 public class Progression {
     public static void playProgression() {
@@ -50,13 +50,13 @@ public class Progression {
             } else {
                 System.out.println("Ouch, " + itProgressionAnswer + " is wrong answer.\n"
                         + answerString + " is correct"
-                        + "Let's try again, " + userName + "!");
+                        + "Let's try again, " + getUserName() + "!");
                 counterOfCorrectAnswer += 10;
             }
 
         }
         if (counterOfCorrectAnswer < 4) {
-            System.out.println("Congratulations, " + Cli.userName + "!");
+            System.out.println("Congratulations, " + getUserName() + "!");
         }
     }
 }
