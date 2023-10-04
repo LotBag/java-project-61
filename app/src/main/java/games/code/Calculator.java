@@ -8,15 +8,15 @@ import static hexlet.code.Cli.getUserName;
 
 public class Calculator {
     public static void playCalculator() {
-        int scoreToWin = 3;
+        final int scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("What is the result of the expression?\n"
                 + "You need to give " + scoreToWin + " correct answers to win.");
 
         int counterOfCorrectAnswer = 0;
-        int loserPoint = scoreToWin + scoreToWin;
-        int maxRandomNum = 100;
-        int operatorCount = 3;
+        final int loserPoint = scoreToWin + scoreToWin;
+        final int maxRandomNum = 100;
+        final int operatorCount = 3;
         Scanner calculatorAnswer = new Scanner(System.in);
 
         while (counterOfCorrectAnswer < scoreToWin) {

@@ -7,14 +7,14 @@ import static hexlet.code.Cli.getUserName;
 
 public class Even {
     public static void playEven() {
-        int scoreToWin = 3;
+        final int scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.\n"
                 + "You need to give " + scoreToWin + " correct answers to win.");
 
         int counterOfCorrectAnswer = 0;
-        int maxRandomNum = 100;
-        int loserPoint = scoreToWin + scoreToWin;
+        final int maxRandomNum = 100;
+        final int loserPoint = scoreToWin + scoreToWin;
         Scanner evenAnswer = new Scanner(System.in);
 
         while (counterOfCorrectAnswer < scoreToWin) {

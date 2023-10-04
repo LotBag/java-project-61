@@ -9,14 +9,14 @@ import static hexlet.code.Cli.getUserName;
 
 public class Prime {
     public static void playPrime() {
-        int scoreToWin = 3;
+        final int scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.\n"
                 + "You need to give " + scoreToWin + " correct answers to win.");
 
         int counterOfCorrectAnswer = 0;
-        int loserPoint = scoreToWin + scoreToWin;
-        int maxRandomNum = 1000;
+        final int loserPoint = scoreToWin + scoreToWin;
+        final int maxRandomNum = 1000;
         Scanner primeAnswer = new Scanner(System.in);
 
         while (counterOfCorrectAnswer < scoreToWin) {

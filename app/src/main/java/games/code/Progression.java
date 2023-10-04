@@ -9,17 +9,17 @@ import static hexlet.code.Cli.getUserName;
 
 public class Progression {
     public static void playProgression() {
-        int scoreToWin = 3;
+        final int scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("What number is missing in the progression?\n"
                 + "You need to give " + scoreToWin + " correct answers to win.");
 
         int counterOfCorrectAnswer = 0;
-        int loserPoint = scoreToWin + scoreToWin;
-        int minProgressionLength = 5;
-        int additionalProgressionLength = 5;
-        int maxStartProgression = 100;
-        int maxStepProgression = 50;
+        final int loserPoint = scoreToWin + scoreToWin;
+        final int minProgressionLength = 5;
+        final int additionalProgressionLength = 5;
+        final int maxStartProgression = 100;
+        final int maxStepProgression = 50;
         Scanner progressionAnswer = new Scanner(System.in);
         var missingPart = -1;
 

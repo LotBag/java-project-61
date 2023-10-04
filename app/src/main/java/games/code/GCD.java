@@ -8,15 +8,15 @@ import static hexlet.code.Cli.getUserName;
 
 public class GCD {
     public static void playGCD() {
-        int scoreToWin = 3;
+        final int scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("Find the greatest common divisor of given numbers.\n"
                 + "You need to give " + scoreToWin + " correct answers to win.");
 
         int counterOfCorrectAnswer = 0;
         Scanner gcdAnswer = new Scanner(System.in);
-        int loserPoint = scoreToWin + scoreToWin;
-        int maxRandomNum = 100;
+        final int loserPoint = scoreToWin + scoreToWin;
+        final int maxRandomNum = 100;
 
         while (counterOfCorrectAnswer < scoreToWin) {
             var randomFirstNum = (int) (Math.random() * maxRandomNum);
