@@ -9,15 +9,18 @@ import static hexlet.code.Cli.getUserName;
 
 public class Prime {
     public static void playPrime() {
+        var scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.\n"
-                + "You need to give three correct answers to win.");
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         var counterOfCorrectAnswer = 0;
+        var loserPoint = scoreToWin + scoreToWin;
+        var maxRandomNum = 1000;
         Scanner primeAnswer = new Scanner(System.in);
 
-        while (counterOfCorrectAnswer < 3) {
-            var randomNum = (int) (Math.random() * 1000);
+        while (counterOfCorrectAnswer < scoreToWin) {
+            var randomNum = (int) (Math.random() * maxRandomNum);
 
             BigInteger bigInteger = BigInteger.valueOf(randomNum);
             boolean probablePrime = bigInteger.isProbablePrime((int) Math.log(randomNum));
@@ -35,7 +38,7 @@ public class Prime {
                     } else {
                         System.out.println("Oops, '" + itPrimeAnswer + "' is wrong answer.Correct answer 'no'.\n"
                                 + "Let's try again, " + getUserName() + "!");
-                        counterOfCorrectAnswer += 10;
+                        counterOfCorrectAnswer += loserPoint;
                     }
                     break;
                 case "no":
@@ -45,17 +48,17 @@ public class Prime {
                     } else {
                         System.out.println("Oops, '" + itPrimeAnswer + "' is wrong answer.Correct answer 'yes'.\n"
                                 + "Let's try again, " + getUserName() + "!");
-                        counterOfCorrectAnswer += 10;
+                        counterOfCorrectAnswer += loserPoint;
                     }
                     break;
                 default:
                     System.out.println("Write only 'yes' or 'no' next time!"
                             + "Let's try again, " + getUserName() + "!");
-                    counterOfCorrectAnswer += 10;
+                    counterOfCorrectAnswer += loserPoint;
             }
         }
 
-        if (counterOfCorrectAnswer < 4) {
+        if (counterOfCorrectAnswer == scoreToWin) {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
     }

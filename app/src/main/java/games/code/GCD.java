@@ -8,16 +8,19 @@ import static hexlet.code.Cli.getUserName;
 
 public class GCD {
     public static void playGCD() {
+        var scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("Find the greatest common divisor of given numbers.\n"
-                + "You need to give three correct answers to win.");
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         var counterOfCorrectAnswer = 0;
         Scanner gcdAnswer = new Scanner(System.in);
+        var loserPoint = scoreToWin + scoreToWin;
+        var maxRandomNum = 100;
 
-        while (counterOfCorrectAnswer < 3) {
-            var randomFirstNum = (int) (Math.random() * 100);
-            var randomSecondNum = (int) (Math.random() * 100);
+        while (counterOfCorrectAnswer < scoreToWin) {
+            var randomFirstNum = (int) (Math.random() * maxRandomNum);
+            var randomSecondNum = (int) (Math.random() * maxRandomNum);
 
             if (randomFirstNum == 0) {
                 randomFirstNum++;
@@ -62,11 +65,11 @@ public class GCD {
                 System.out.println("Ouch, " + itGCDAnswer + " is wrong answer.\n"
                         + gcdByEuclidInt + " is correct\n"
                         + "Let's try again, " + getUserName() + "!");
-                counterOfCorrectAnswer += 10;
+                counterOfCorrectAnswer += loserPoint;
             }
         }
 
-        if (counterOfCorrectAnswer < 4) {
+        if (counterOfCorrectAnswer == scoreToWin) {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
     }

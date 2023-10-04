@@ -9,18 +9,24 @@ import static hexlet.code.Cli.getUserName;
 
 public class Progression {
     public static void playProgression() {
+        var scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("What number is missing in the progression?\n"
-                + "You need to give three correct answers to win.");
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         var counterOfCorrectAnswer = 0;
+        var loserPoint = scoreToWin + scoreToWin;
+        var minProgressionLength = 5;
+        var additionalProgressionLength = 5;
+        var maxStartProgression = 100;
+        var maxStepProgression = 50;
         Scanner progressionAnswer = new Scanner(System.in);
         var missingPart = -1;
 
-        while (counterOfCorrectAnswer < 3) {
-            int progressionLength = (int) (5 + (Math.random() * 5));
-            int progressionStart = (int) (Math.random() * 100);
-            int progressionStep = (int) (Math.random() * 50);
+        while (counterOfCorrectAnswer < scoreToWin) {
+            int progressionLength = (int) (minProgressionLength + (Math.random() * additionalProgressionLength));
+            int progressionStart = (int) (Math.random() * maxStartProgression);
+            int progressionStep = (int) (Math.random() * maxStepProgression);
             int missingElement = (int) (progressionLength - Math.random() * progressionLength - 1);
             int[] progressionElements = new int[progressionLength];
 
@@ -51,11 +57,11 @@ public class Progression {
                 System.out.println("Ouch, " + itProgressionAnswer + " is wrong answer.\n"
                         + answerString + " is correct"
                         + "Let's try again, " + getUserName() + "!");
-                counterOfCorrectAnswer += 10;
+                counterOfCorrectAnswer += loserPoint;
             }
 
         }
-        if (counterOfCorrectAnswer < 4) {
+        if (counterOfCorrectAnswer == scoreToWin) {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
     }

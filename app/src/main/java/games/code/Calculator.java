@@ -4,21 +4,25 @@ import hexlet.code.Cli;
 
 import java.util.Scanner;
 
-import static hexlet.code.Cli.userName;
+import static hexlet.code.Cli.getUserName;
 
 public class Calculator {
     public static void playCalculator() {
+        var scoreToWin = 3;
         Cli.acquaintance();
         System.out.println("What is the result of the expression?\n"
-                + "You need to give three correct answers to win.");
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         var counterOfCorrectAnswer = 0;
+        var loserPoint = scoreToWin + scoreToWin;
+        var maxRandomNum = 100;
+        var operatorCount = 3;
         Scanner calculatorAnswer = new Scanner(System.in);
 
-        while (counterOfCorrectAnswer < 3) {
-            var randomFirstNum = (int) (Math.random() * 100);
-            var randomSecondNum = (int) (Math.random() * 100);
-            var randomOperator = (int) (Math.random() * 3);
+        while (counterOfCorrectAnswer < scoreToWin) {
+            var randomFirstNum = (int) (Math.random() * maxRandomNum);
+            var randomSecondNum = (int) (Math.random() * maxRandomNum);
+            var randomOperator = (int) (Math.random() * operatorCount);
             int resultInt;
             String resultString = "";
 
@@ -50,13 +54,13 @@ public class Calculator {
             } else {
                 System.out.println("Ouch, " + itCalculatorAnswer + " is wrong answer.\n"
                         + resultInt + " is correct\n"
-                        + "Let's try again, " + userName + "!");
-                counterOfCorrectAnswer += 10;
+                        + "Let's try again, " + getUserName() + "!");
+                counterOfCorrectAnswer += loserPoint;
             }
         }
 
-        if (counterOfCorrectAnswer < 4) {
-            System.out.println("Congratulations, " + Cli.userName + "!");
+        if (counterOfCorrectAnswer == scoreToWin) {
+            System.out.println("Congratulations, " + getUserName() + "!");
         }
 
     }
