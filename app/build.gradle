@@ -4,9 +4,6 @@ plugins {
 
 plugins {
     id 'application'
-}
-
-plugins {
     id 'checkstyle'
 }
 

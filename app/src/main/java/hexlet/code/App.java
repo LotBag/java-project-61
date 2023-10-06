@@ -2,39 +2,47 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static games.code.Calculator.playCalculator;
-import static games.code.Even.playEven;
-import static games.code.GCD.playGCD;
-import static games.code.Prime.playPrime;
-import static games.code.Progression.playProgression;
-import static hexlet.code.Cli.acquaintance;
+import static hexlet.code.games.Calculator.playCalculator;
+import static hexlet.code.games.Even.playEven;
+import static hexlet.code.games.GCD.playGCD;
+import static hexlet.code.games.Prime.playPrime;
+import static hexlet.code.games.Progression.playProgression;
+import static hexlet.code.Cli.greetings;
+
 public class App {
     public static void main(String[] args) {
+        final String choiceGreetings = "1";
+        final String choiceEven = "2";
+        final String choiceCalculator = "3";
+        final String choiceGCD = "4";
+        final String choiceProgression = "5";
+        final String choicePrime = "6";
+        final String exit = "0";
         System.out.println("Please enter the game number and press Enter");
         System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         System.out.println("Your choice:");
         Scanner choiceGame = new Scanner(System.in);
         var choice = choiceGame.next();
         switch (choice) {
-            case "1":
-                acquaintance();
+            case choiceGreetings:
+                greetings();
                 break;
-            case "2":
+            case choiceEven:
                 playEven();
                 break;
-            case "3":
+            case choiceCalculator:
                 playCalculator();
                 break;
-            case "4":
+            case choiceGCD:
                 playGCD();
                 break;
-            case "5":
+            case choiceProgression:
                 playProgression();
                 break;
-            case "6":
+            case choicePrime:
                 playPrime();
                 break;
-            case "0":
+            case exit:
                 break;
             default:
                 System.out.println("Did you miss?");

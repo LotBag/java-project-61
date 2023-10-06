@@ -3,8 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Cli {
-    private static String userName;
-    public static void acquaintance() {
+    public static String userName;
+    public static void greetings() {
         Scanner newUser = new Scanner(System.in);
 
         System.out.println("Welcome to the Brain Games!");
