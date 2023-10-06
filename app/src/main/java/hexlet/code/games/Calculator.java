@@ -21,17 +21,17 @@ public class Calculator {
                 case 1:
                     gameAnswerInt = randomFirstNum + randomSecondNum;
                     Engine.questionsAnswers[i] = String.valueOf(gameAnswerInt);
-                    Engine.questions[i] = "Question: " + randomFirstNum + " + " + randomSecondNum;
+                    Engine.questions[i] = randomFirstNum + " + " + randomSecondNum;
                     break;
                 case 2:
                     gameAnswerInt = randomFirstNum - randomSecondNum;
                     Engine.questionsAnswers[i] = String.valueOf(gameAnswerInt);
-                    Engine.questions[i] = "Question: " + randomFirstNum + " - " + randomSecondNum;
+                    Engine.questions[i] = randomFirstNum + " - " + randomSecondNum;
                     break;
                 default:
                     gameAnswerInt = randomFirstNum * randomSecondNum;
                     Engine.questionsAnswers[i] = String.valueOf(gameAnswerInt);
-                    Engine.questions[i] = "Question: " + randomFirstNum + " * " + randomSecondNum;
+                    Engine.questions[i] = randomFirstNum + " * " + randomSecondNum;
                     break;
             }
         }

@@ -33,7 +33,7 @@ public class GCD {
                 smallerNum = randomSecondNum;
             }
 
-            Engine.questions[i] = "Question: " + largerNum + " " + smallerNum;
+            Engine.questions[i] = largerNum + " " + smallerNum;
 
             String gcdByEuclidString = "";
 

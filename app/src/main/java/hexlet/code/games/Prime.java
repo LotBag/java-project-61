@@ -18,7 +18,7 @@ public class Prime {
             BigInteger bigInteger = BigInteger.valueOf(randomNum);
             boolean probablePrime = bigInteger.isProbablePrime((int) Math.log(randomNum));
 
-            Engine.questions[i] = "Question: " + randomNum;
+            Engine.questions[i] = String.valueOf(randomNum);
 
             if (probablePrime) {
                 Engine.questionsAnswers[i] = "yes";

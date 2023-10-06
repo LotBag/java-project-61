@@ -38,7 +38,7 @@ public class Progression {
             var replaceComma = replaceMissingElements.replace(",", "");
             var replaceQuotationMarks = replaceComma.substring(1, replaceComma.length() - 1);
 
-            Engine.questions[i] = "Question: " + replaceQuotationMarks;
+            Engine.questions[i] = replaceQuotationMarks;
             Engine.questionsAnswers[i] = answerString;
 
         }

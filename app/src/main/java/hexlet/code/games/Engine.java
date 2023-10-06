@@ -17,7 +17,7 @@ public class Engine {
         System.out.println(gameRules);
 
         for (var i = 0; i < questions.length; i++) {
-            System.out.println(questions[i]);
+            System.out.println("Question: " + questions[i]);
             System.out.println("Your answer: ");
             var itAnswer = answer.next();
 
