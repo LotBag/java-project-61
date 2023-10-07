@@ -3,12 +3,12 @@ package hexlet.code.games;
 public class Even {
     public static void playEven() {
         final int scoreToWin = 3;
-        Engine.gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.\n"
-                + "You need to give " + scoreToWin + " correct answers to win.";
+        Engine.setGameRules("Answer 'yes' if the number is even, otherwise answer 'no'.\n"
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         final int maxRandomNum = 100;
-        Engine.questions = new String[scoreToWin];
-        Engine.questionsAnswers = new String[scoreToWin];
+        String[] gameQuestions = new String[scoreToWin];
+        String[] gameQuestionsAnswers = new String[scoreToWin];
 
         for (var i = 0; i < scoreToWin; i++) {
             var randomNum = (int) (Math.random() * maxRandomNum);
@@ -20,13 +20,15 @@ public class Even {
             var isRandomNumEven = (randomNum % 2 == 0);
 
             if (isRandomNumEven) {
-                Engine.questionsAnswers[i] = "yes";
+                gameQuestionsAnswers[i] = "yes";
             } else {
-                Engine.questionsAnswers[i] = "no";
+                gameQuestionsAnswers[i] = "no";
             }
 
-            Engine.questions[i] = String.valueOf(randomNum);
+            gameQuestions[i] = String.valueOf(randomNum);
         }
+        Engine.setQuestionsAnswers(gameQuestionsAnswers);
+        Engine.setQuestions(gameQuestions);
 
         Engine.playGame();
     }

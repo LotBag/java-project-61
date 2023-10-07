@@ -3,12 +3,12 @@ package hexlet.code.games;
 public class GCD {
     public static void playGCD() {
         final int scoreToWin = 3;
-        Engine.gameRules = "Find the greatest common divisor of given numbers.\n"
-                + "You need to give " + scoreToWin + " correct answers to win.";
+        Engine.setGameRules("Find the greatest common divisor of given numbers.\n"
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         final int maxRandomNum = 100;
-        Engine.questions = new String[scoreToWin];
-        Engine.questionsAnswers = new String[scoreToWin];
+        String[] gameQuestions = new String[scoreToWin];
+        String[] gameQuestionsAnswers = new String[scoreToWin];
 
         for (var i = 0; i < scoreToWin; i++) {
             var randomFirstNum = (int) (Math.random() * maxRandomNum);
@@ -33,7 +33,7 @@ public class GCD {
                 smallerNum = randomSecondNum;
             }
 
-            Engine.questions[i] = largerNum + " " + smallerNum;
+            gameQuestions[i] = largerNum + " " + smallerNum;
 
             String gcdByEuclidString = "";
 
@@ -45,8 +45,10 @@ public class GCD {
 
             gcdByEuclidString += largerNum;
 
-            Engine.questionsAnswers[i] = gcdByEuclidString;
+            gameQuestionsAnswers[i] = gcdByEuclidString;
         }
+        Engine.setQuestions(gameQuestions);
+        Engine.setQuestionsAnswers(gameQuestionsAnswers);
 
         Engine.playGame();
     }

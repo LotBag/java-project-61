@@ -3,13 +3,13 @@ package hexlet.code.games;
 public class Calculator {
     public static void playCalculator() {
         final int scoreToWin = 3;
-        Engine.gameRules = "What is the result of the expression?\n"
-                + "You need to give " + scoreToWin + " correct answers to win.";
+        Engine.setGameRules("What is the result of the expression?\n"
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         final int maxRandomNum = 100;
         final int operatorCount = 3;
-        Engine.questions = new String[scoreToWin];
-        Engine.questionsAnswers = new String[scoreToWin];
+        String[] gameQuestions = new String[scoreToWin];
+        String[] gameQuestionsAnswers = new String[scoreToWin];
 
         for (var i = 0; i < scoreToWin; i++) {
             var randomFirstNum = (int) (Math.random() * maxRandomNum);
@@ -20,21 +20,23 @@ public class Calculator {
             switch (randomOperator) {
                 case 1:
                     gameAnswerInt = randomFirstNum + randomSecondNum;
-                    Engine.questionsAnswers[i] = String.valueOf(gameAnswerInt);
-                    Engine.questions[i] = randomFirstNum + " + " + randomSecondNum;
+                    gameQuestionsAnswers[i] = String.valueOf(gameAnswerInt);
+                    gameQuestions[i] = randomFirstNum + " + " + randomSecondNum;
                     break;
                 case 2:
                     gameAnswerInt = randomFirstNum - randomSecondNum;
-                    Engine.questionsAnswers[i] = String.valueOf(gameAnswerInt);
-                    Engine.questions[i] = randomFirstNum + " - " + randomSecondNum;
+                    gameQuestionsAnswers[i] = String.valueOf(gameAnswerInt);
+                    gameQuestions[i] = randomFirstNum + " - " + randomSecondNum;
                     break;
                 default:
                     gameAnswerInt = randomFirstNum * randomSecondNum;
-                    Engine.questionsAnswers[i] = String.valueOf(gameAnswerInt);
-                    Engine.questions[i] = randomFirstNum + " * " + randomSecondNum;
+                    gameQuestionsAnswers[i] = String.valueOf(gameAnswerInt);
+                    gameQuestions[i] = randomFirstNum + " * " + randomSecondNum;
                     break;
             }
         }
+        Engine.setQuestions(gameQuestions);
+        Engine.setQuestionsAnswers(gameQuestionsAnswers);
 
         Engine.playGame();
     }

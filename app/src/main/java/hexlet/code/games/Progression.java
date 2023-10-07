@@ -5,16 +5,16 @@ import java.util.Arrays;
 public class Progression {
     public static void playProgression() {
         final int scoreToWin = 3;
-        Engine.gameRules = "What number is missing in the progression?\n"
-                + "You need to give " + scoreToWin + " correct answers to win.";
+        Engine.setGameRules("What number is missing in the progression?\n"
+                + "You need to give " + scoreToWin + " correct answers to win.");
 
         final int minProgressionLength = 5;
         final int additionalProgressionLength = 5;
         final int maxStartProgression = 100;
         final int maxStepProgression = 50;
         var missingPart = -1;
-        Engine.questions = new String[scoreToWin];
-        Engine.questionsAnswers = new String[scoreToWin];
+        String[] gameQuestions = new String[scoreToWin];
+        String[] gameQuestionsAnswers = new String[scoreToWin];
 
         for (var i = 0; i < scoreToWin; i++) {
             int progressionLength = (int) (minProgressionLength + (Math.random() * additionalProgressionLength));
@@ -38,10 +38,12 @@ public class Progression {
             var replaceComma = replaceMissingElements.replace(",", "");
             var replaceQuotationMarks = replaceComma.substring(1, replaceComma.length() - 1);
 
-            Engine.questions[i] = replaceQuotationMarks;
-            Engine.questionsAnswers[i] = answerString;
+            gameQuestions[i] = replaceQuotationMarks;
+            gameQuestionsAnswers[i] = answerString;
 
         }
+        Engine.setQuestions(gameQuestions);
+        Engine.setQuestionsAnswers(gameQuestionsAnswers);
 
         Engine.playGame();
     }

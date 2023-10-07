@@ -1,18 +1,28 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-
 import java.util.Scanner;
 
-import static hexlet.code.Cli.getUserName;
-
 public class Engine {
-    public static String gameRules;
-    public static String[] questions;
-    public static String[] questionsAnswers;
+    private static String gameRules;
+    private static String[] questions;
+    private static String[] questionsAnswers;
+    public static void setGameRules(String thisRules) {
+        gameRules = thisRules;
+    }
+    public static void setQuestions(String[] gameQuestions) {
+        questions = gameQuestions;
+    }
+    public static void setQuestionsAnswers(String[] gameQuestionsAnswers) {
+        questionsAnswers = gameQuestionsAnswers;
+    }
     public static void playGame() {
         Scanner answer = new Scanner(System.in);
-        Cli.greetings();
+        Scanner newUser = new Scanner(System.in);
+
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name? ");
+        String userName = newUser.next();
+        System.out.println("Hello, " + userName + "!");
 
         System.out.println(gameRules);
 
@@ -26,10 +36,10 @@ public class Engine {
             } else {
                 System.out.println("Ouch, " + itAnswer + " is wrong answer.\n"
                         + questionsAnswers[i] + " is correct\n"
-                        + "Let's try again, " + getUserName() + "!");
+                        + "Let's try again, " + userName + "!");
                 return;
             }
         }
-        System.out.println("Congratulations, " + getUserName() + "!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 }
