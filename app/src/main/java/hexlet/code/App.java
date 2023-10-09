@@ -21,7 +21,6 @@ public class App {
         System.out.println("Your choice:");
         Scanner choiceGame = new Scanner(System.in);
         var choice = choiceGame.next();
-        choiceGame.close();
         switch (choice) {
             case CHOICE_GREETINGS:
                 Cli.greetings();
@@ -47,5 +46,6 @@ public class App {
                 System.out.println("Did you miss?");
                 break;
         }
+        choiceGame.close();
     }
 }

@@ -27,7 +27,7 @@ public class Engine {
                 return;
             }
         }
-        scanner.close();
         System.out.println("Congratulations, " + userName + "!");
+        scanner.close();
     }
 }
