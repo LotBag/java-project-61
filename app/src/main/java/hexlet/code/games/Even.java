@@ -1,25 +1,29 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.Random;
+
 public class Even {
+    private static final int SCORE_TO_WIN = 3;
+    private static final int MAX_RANDOM_NUM = 100;
+    private static final int MIN_RANDOM_NUM = 1;
+    public static boolean isEven(int randomNum) {
+        return randomNum % 2 == 0;
+    }
     public static void playEven() {
-        final int scoreToWin = 3;
-        Engine.setGameRules("Answer 'yes' if the number is even, otherwise answer 'no'.\n"
-                + "You need to give " + scoreToWin + " correct answers to win.");
 
-        final int maxRandomNum = 100;
-        String[] gameQuestions = new String[scoreToWin];
-        String[] gameQuestionsAnswers = new String[scoreToWin];
+        String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.\n"
+                + "You need to give " + SCORE_TO_WIN + " correct answers to win.";
 
-        for (var i = 0; i < scoreToWin; i++) {
-            var randomNum = (int) (Math.random() * maxRandomNum);
+        String[] gameQuestions = new String[SCORE_TO_WIN];
+        String[] gameQuestionsAnswers = new String[SCORE_TO_WIN];
+        Random random = new Random();
 
-            if (randomNum == 0) {
-                randomNum++;
-            }
+        for (var i = 0; i < SCORE_TO_WIN; i++) {
+            var randomNum = random.nextInt(MAX_RANDOM_NUM) + MIN_RANDOM_NUM;
 
-            var isRandomNumEven = (randomNum % 2 == 0);
-
-            if (isRandomNumEven) {
+            if (isEven(randomNum)) {
                 gameQuestionsAnswers[i] = "yes";
             } else {
                 gameQuestionsAnswers[i] = "no";
@@ -27,9 +31,7 @@ public class Even {
 
             gameQuestions[i] = String.valueOf(randomNum);
         }
-        Engine.setQuestionsAnswers(gameQuestionsAnswers);
-        Engine.setQuestions(gameQuestions);
 
-        Engine.playGame();
+        Engine.playGame(gameRules, gameQuestions, gameQuestionsAnswers);
     }
 }

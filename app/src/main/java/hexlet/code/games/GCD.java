@@ -1,26 +1,25 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.Random;
+
 public class GCD {
+    private static final int SCORE_TO_WIN = 3;
+    private static final int MAX_RANDOM_NUM = 100;
+    private static final int MIN_RANDOM_NUM = 1;
     public static void playGCD() {
-        final int scoreToWin = 3;
-        Engine.setGameRules("Find the greatest common divisor of given numbers.\n"
-                + "You need to give " + scoreToWin + " correct answers to win.");
 
-        final int maxRandomNum = 100;
-        String[] gameQuestions = new String[scoreToWin];
-        String[] gameQuestionsAnswers = new String[scoreToWin];
+        String gameRules = "Find the greatest common divisor of given numbers.\n"
+                + "You need to give " + SCORE_TO_WIN + " correct answers to win.";
 
-        for (var i = 0; i < scoreToWin; i++) {
-            var randomFirstNum = (int) (Math.random() * maxRandomNum);
-            var randomSecondNum = (int) (Math.random() * maxRandomNum);
+        String[] gameQuestions = new String[SCORE_TO_WIN];
+        String[] gameQuestionsAnswers = new String[SCORE_TO_WIN];
+        Random random = new Random();
 
-            if (randomFirstNum == 0) {
-                randomFirstNum++;
-            }
-
-            if (randomSecondNum == 0) {
-                randomSecondNum++;
-            }
+        for (var i = 0; i < SCORE_TO_WIN; i++) {
+            var randomFirstNum = random.nextInt(MAX_RANDOM_NUM) + MIN_RANDOM_NUM;
+            var randomSecondNum = random.nextInt(MAX_RANDOM_NUM) + MIN_RANDOM_NUM;
 
             int largerNum;
             int smallerNum;
@@ -47,9 +46,7 @@ public class GCD {
 
             gameQuestionsAnswers[i] = gcdByEuclidString;
         }
-        Engine.setQuestions(gameQuestions);
-        Engine.setQuestionsAnswers(gameQuestionsAnswers);
 
-        Engine.playGame();
+        Engine.playGame(gameRules, gameQuestions, gameQuestionsAnswers);
     }
 }

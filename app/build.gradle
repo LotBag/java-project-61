@@ -1,10 +1,7 @@
 plugins {
-    id 'java'
-}
-
-plugins {
     id 'application'
     id 'checkstyle'
+    id 'java'
 }
 
 application {

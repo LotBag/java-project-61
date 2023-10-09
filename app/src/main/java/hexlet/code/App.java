@@ -1,48 +1,47 @@
 package hexlet.code;
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+import hexlet.code.games.GCD;
+
 import java.util.Scanner;
-
-import static hexlet.code.games.Calculator.playCalculator;
-import static hexlet.code.games.Even.playEven;
-import static hexlet.code.games.GCD.playGCD;
-import static hexlet.code.games.Prime.playPrime;
-import static hexlet.code.games.Progression.playProgression;
-import static hexlet.code.Cli.greetings;
-
 public class App {
+    private static final String CHOICE_GREETINGS = "1";
+    private static final String CHOICE_EVEN = "2";
+    private static final String CHOICE_CALCULATOR = "3";
+    private static final String CHOICE_GCD = "4";
+    private static final String CHOICE_PROGRESSION = "5";
+    private static final String CHOICE_PRIME = "6";
+    private static final String EXIT = "0";
     public static void main(String[] args) {
-        final String choiceGreetings = "1";
-        final String choiceEven = "2";
-        final String choiceCalculator = "3";
-        final String choiceGCD = "4";
-        final String choiceProgression = "5";
-        final String choicePrime = "6";
-        final String exit = "0";
         System.out.println("Please enter the game number and press Enter");
         System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         System.out.println("Your choice:");
         Scanner choiceGame = new Scanner(System.in);
         var choice = choiceGame.next();
+        choiceGame.close();
         switch (choice) {
-            case choiceGreetings:
-                greetings();
+            case CHOICE_GREETINGS:
+                Cli.greetings();
                 break;
-            case choiceEven:
-                playEven();
+            case CHOICE_EVEN:
+                Even.playEven();
                 break;
-            case choiceCalculator:
-                playCalculator();
+            case CHOICE_CALCULATOR:
+                Calculator.playCalculator();
                 break;
-            case choiceGCD:
-                playGCD();
+            case CHOICE_GCD:
+                GCD.playGCD();
                 break;
-            case choiceProgression:
-                playProgression();
+            case CHOICE_PROGRESSION:
+                Progression.playProgression();
                 break;
-            case choicePrime:
-                playPrime();
+            case CHOICE_PRIME:
+                Prime.playPrime();
                 break;
-            case exit:
+            case EXIT:
                 break;
             default:
                 System.out.println("Did you miss?");
