@@ -13,6 +13,18 @@ public class Progression {
     private static final int MIN_START_PROGRESSION = 1;
     private static final int MAX_STEP_PROGRESSION = 50;
     private static final int MIN_STEP_PROGRESSION = 1;
+
+    public static int[] createProgression(int progressionStart, int progressionLength, int progressionStep) {
+        int[] progressionElements = new int[progressionLength];
+
+        progressionElements[0] = progressionStart;
+
+        for (var i2 = 1; i2 < progressionElements.length; i2++) {
+            progressionElements[i2] = progressionElements[i2 - 1] + progressionStep;
+        }
+        return progressionElements;
+    }
+
     public static void playProgression() {
 
         String gameRules = "What number is missing in the progression?\n"
@@ -28,18 +40,13 @@ public class Progression {
             int progressionStart = random.nextInt(MAX_START_PROGRESSION) + MIN_START_PROGRESSION;
             int progressionStep = random.nextInt(MAX_STEP_PROGRESSION) + MIN_STEP_PROGRESSION;
             int missingElement = (int) (progressionLength - Math.random() * progressionLength - 1);
-            int[] progressionElements = new int[progressionLength];
 
-            progressionElements[0] = progressionStart;
+            int[] progression = createProgression(progressionStart, progressionLength, progressionStep);
 
-            for (var i2 = 1; i2 < progressionElements.length; i2++) {
-                progressionElements[i2] = progressionElements[i2 - 1] + progressionStep;
-            }
-
-            var answerInt = progressionElements[missingElement];
+            var answerInt = progression[missingElement];
             var answerString = "" + answerInt;
-            progressionElements[missingElement] = missingPart;
-            var progressionToString = Arrays.toString(progressionElements);
+            progression[missingElement] = missingPart;
+            var progressionToString = Arrays.toString(progression);
 
             var replaceMissingElements = progressionToString.replace("-1", "..");
             var replaceComma = replaceMissingElements.replace(",", "");

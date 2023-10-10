@@ -8,9 +8,11 @@ public class Even {
     private static final int SCORE_TO_WIN = 3;
     private static final int MAX_RANDOM_NUM = 100;
     private static final int MIN_RANDOM_NUM = 1;
-    public static boolean isEven(int randomNum) {
-        return randomNum % 2 == 0;
+
+    public static boolean isEven(int num) {
+        return num % 2 == 0;
     }
+
     public static void playEven() {
 
         String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.\n"

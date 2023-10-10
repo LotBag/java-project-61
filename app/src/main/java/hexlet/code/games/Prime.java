@@ -9,10 +9,12 @@ public class Prime {
     private static final int SCORE_TO_WIN = 3;
     private static final int MAX_RANDOM_NUM = 1000;
     private static final int MIN_RANDOM_NUM = 1;
-    public static boolean isPrime(int randomNum) {
-        BigInteger bigInteger = BigInteger.valueOf(randomNum);
-        return bigInteger.isProbablePrime((int) Math.log(randomNum));
+
+    public static boolean isPrime(int num) {
+        BigInteger bigInteger = BigInteger.valueOf(num);
+        return bigInteger.isProbablePrime((int) Math.log(num));
     }
+
     public static void playPrime() {
 
         String gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\n"

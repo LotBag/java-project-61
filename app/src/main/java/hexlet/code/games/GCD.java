@@ -8,6 +8,16 @@ public class GCD {
     private static final int SCORE_TO_WIN = 3;
     private static final int MAX_RANDOM_NUM = 100;
     private static final int MIN_RANDOM_NUM = 1;
+
+    public static int findGCD(int largerNum, int smallerNum) {
+        while (smallerNum != 0) {
+            int tmp = largerNum % smallerNum;
+            largerNum = smallerNum;
+            smallerNum = tmp;
+        }
+        return largerNum;
+    }
+
     public static void playGCD() {
 
         String gameRules = "Find the greatest common divisor of given numbers.\n"
@@ -36,13 +46,7 @@ public class GCD {
 
             String gcdByEuclidString = "";
 
-            while (smallerNum != 0) {
-                int tmp = largerNum % smallerNum;
-                largerNum = smallerNum;
-                smallerNum = tmp;
-            }
-
-            gcdByEuclidString += largerNum;
+            gcdByEuclidString += findGCD(largerNum, smallerNum);
 
             gameQuestionsAnswers[i] = gcdByEuclidString;
         }
