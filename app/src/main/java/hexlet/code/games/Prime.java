@@ -2,30 +2,31 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.math.BigInteger;
-import java.util.Random;
-
 public class Prime {
     private static final int SCORE_TO_WIN = 3;
     private static final int MAX_RANDOM_NUM = 1000;
     private static final int MIN_RANDOM_NUM = 1;
 
     public static boolean isPrime(int num) {
-        BigInteger bigInteger = BigInteger.valueOf(num);
-        return bigInteger.isProbablePrime((int) Math.log(num));
+        int temp;
+        for (int i = 2; i <= num / 2; i++) {
+            temp = num % i;
+            if (temp == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void playPrime() {
 
-        String gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.\n"
-                + "You need to give " + SCORE_TO_WIN + " correct answers to win.";
+        String gameRules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
         String[] gameQuestions = new String[SCORE_TO_WIN];
         String[] gameQuestionsAnswers = new String[SCORE_TO_WIN];
-        Random random = new Random();
 
         for (var i = 0; i < SCORE_TO_WIN; i++) {
-            var randomNum = random.nextInt(MAX_RANDOM_NUM) + MIN_RANDOM_NUM;
+            var randomNum = Utils.createRandomNum(MAX_RANDOM_NUM, MIN_RANDOM_NUM);
 
             gameQuestions[i] = String.valueOf(randomNum);
 

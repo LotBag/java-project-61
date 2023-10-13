@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-
 public class Even {
     private static final int SCORE_TO_WIN = 3;
     private static final int MAX_RANDOM_NUM = 100;
@@ -15,15 +13,13 @@ public class Even {
 
     public static void playEven() {
 
-        String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.\n"
-                + "You need to give " + SCORE_TO_WIN + " correct answers to win.";
+        String gameRules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
         String[] gameQuestions = new String[SCORE_TO_WIN];
         String[] gameQuestionsAnswers = new String[SCORE_TO_WIN];
-        Random random = new Random();
 
         for (var i = 0; i < SCORE_TO_WIN; i++) {
-            var randomNum = random.nextInt(MAX_RANDOM_NUM) + MIN_RANDOM_NUM;
+            var randomNum = Utils.createRandomNum(MAX_RANDOM_NUM, MIN_RANDOM_NUM);
 
             if (isEven(randomNum)) {
                 gameQuestionsAnswers[i] = "yes";

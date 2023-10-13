@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Progression {
     private static final int SCORE_TO_WIN = 3;
@@ -19,26 +18,24 @@ public class Progression {
 
         progressionElements[0] = progressionStart;
 
-        for (var i2 = 1; i2 < progressionElements.length; i2++) {
-            progressionElements[i2] = progressionElements[i2 - 1] + progressionStep;
+        for (var i = 1; i < progressionElements.length; i++) {
+            progressionElements[i] = progressionElements[i - 1] + progressionStep;
         }
         return progressionElements;
     }
 
     public static void playProgression() {
 
-        String gameRules = "What number is missing in the progression?\n"
-                + "You need to give " + SCORE_TO_WIN + " correct answers to win.";
+        String gameRules = "What number is missing in the progression?";
 
         var missingPart = -1;
         String[] gameQuestions = new String[SCORE_TO_WIN];
         String[] gameQuestionsAnswers = new String[SCORE_TO_WIN];
-        Random random = new Random();
 
         for (var i = 0; i < SCORE_TO_WIN; i++) {
-            int progressionLength = random.nextInt(ADDITIONAL_PROGRESSION_LENGTH) + MIN_PROGRESSION_LENGTH;
-            int progressionStart = random.nextInt(MAX_START_PROGRESSION) + MIN_START_PROGRESSION;
-            int progressionStep = random.nextInt(MAX_STEP_PROGRESSION) + MIN_STEP_PROGRESSION;
+            int progressionLength = Utils.createRandomNum(ADDITIONAL_PROGRESSION_LENGTH, MIN_PROGRESSION_LENGTH);
+            int progressionStart = Utils.createRandomNum(MAX_START_PROGRESSION, MIN_START_PROGRESSION);
+            int progressionStep = Utils.createRandomNum(MAX_STEP_PROGRESSION, MIN_STEP_PROGRESSION);
             int missingElement = (int) (progressionLength - Math.random() * progressionLength - 1);
 
             int[] progression = createProgression(progressionStart, progressionLength, progressionStep);
