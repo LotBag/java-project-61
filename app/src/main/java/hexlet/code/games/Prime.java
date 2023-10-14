@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
     private static final int SCORE_TO_WIN = 3;
@@ -8,11 +9,15 @@ public class Prime {
     private static final int MIN_RANDOM_NUM = 1;
 
     public static boolean isPrime(int num) {
-        int temp;
-        for (int i = 2; i <= num / 2; i++) {
-            temp = num % i;
-            if (temp == 0) {
-                return false;
+        if (num < 2) {
+            return false;
+        } else {
+            int temp;
+            for (int i = 2; i <= num / 2; i++) {
+                temp = num % i;
+                if (temp == 0) {
+                    return false;
+                }
             }
         }
         return true;
